@@ -122,7 +122,7 @@ namespace InlamningBankkonto
             if (user.Investeringskonto.Kontonummer == SelectedAccountNumberByUser)
             {
                 return user.Investeringskonto;
-            } else { return null; }
+            } else { return null!; }
         }
     }
 }
