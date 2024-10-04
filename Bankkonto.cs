@@ -19,30 +19,30 @@ namespace InlamningBankkonto
             Saldo = saldo;
         }
 
-        public virtual bool Deposit(int saldo)
+        public virtual bool Deposit(int amount)
         {
-            if (saldo <= 0)
+            if (amount <= 0)
             {
                 Console.WriteLine("Summan måste vara högre än 0");
                 return false;
             }
-            Saldo += saldo;
+            Saldo += amount;
             return true;
         }
 
-        public virtual bool Withdraw(int saldo)
+        public virtual bool Withdraw(int amount)
         {
-            if (saldo <= 0)
+            if (amount <= 0)
             {
                 Console.WriteLine("Summan måste vara större än 0");
                 return false;
             }
-            if (saldo > Saldo)
+            if (amount > Saldo)
             {
                 Console.WriteLine("Du har inte tillräckligt med pengar");
                 return false;
             }
-            Saldo -= saldo;
+            Saldo -= amount;
             return true;
         }
     }
