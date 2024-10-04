@@ -34,7 +34,7 @@ namespace InlamningBankkonto
 
                     if (user.UserPinCode == userTypeInPinCode && user.UserName == userTypeInName)
                 {
-                        Console.WriteLine($"Välkommen {user.UserName}!! Du är inloggad");
+                        Console.WriteLine($"Välkommen {user.UserName}! Du är inloggad");
                         userIsLoggedIn = true;
                         
                         Transaktioner account = new Transaktioner(user);
@@ -68,7 +68,7 @@ namespace InlamningBankkonto
                                 account.TransferMoney();
                                 break;
                             case "5":
-                                Console.WriteLine("Loggar ut.... Hejdå");
+                                Console.WriteLine("Loggar ut.... Hejdå!");
                                 userIsLoggedIn = false;
                                 runing = false;
                                 break;

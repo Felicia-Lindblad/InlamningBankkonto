@@ -2,7 +2,7 @@
 
 namespace InlamningBankkonto
 {
-    internal class Transaktioner
+    public class Transaktioner
     {
         private User user;
 
@@ -84,7 +84,7 @@ namespace InlamningBankkonto
             }
         }
 
-        private Bankkonto SelectAccount()
+        public Bankkonto SelectAccount()
         {
             Console.WriteLine("Välj ett konto");
             Console.WriteLine("1. Personkonto");
@@ -106,7 +106,6 @@ namespace InlamningBankkonto
                     return null!;
             }
         }
-
         public Bankkonto SelcectAccountByKontoNummer()
         {
             int SelectedAccountNumberByUser = Convert.ToInt32(Console.ReadLine());
