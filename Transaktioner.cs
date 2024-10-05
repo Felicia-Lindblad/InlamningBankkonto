@@ -35,6 +35,7 @@ namespace InlamningBankkonto
             if (account.Deposit(amount))
             {
                 Console.WriteLine($"{amount}kr har satts in på ditt konto. Nytt saldo för {account.KontoTyp} är {account.Saldo}kr");
+                
             }
         }
 
@@ -84,6 +85,24 @@ namespace InlamningBankkonto
             }
         }
 
+        //Skapa metod för att visa första och sista transaktionen för varje konto
+        public void VisaTransaktionsHistoriken()
+        {
+            Bankkonto account = SelectAccount();
+
+            if (account != null)
+            {
+                Console.WriteLine($"Första transaktion för {account.KontoTyp} är: {account.förstaTransaktionsHistorik}");
+                Console.WriteLine($"Sista transaktion för {account.KontoTyp} är: {account.sistaTransaktionsHistorik}");
+            }
+            else
+            {
+                Console.WriteLine("Inget konto valt");
+            }
+        }
+
+
+        //Användaren ska kunna välja konto 
         public Bankkonto SelectAccount()
         {
             Console.WriteLine("Välj ett konto");

@@ -1,5 +1,4 @@
 ﻿
-
 using System;
 
 namespace InlamningBankkonto
@@ -10,6 +9,8 @@ namespace InlamningBankkonto
         public int Kontonummer { get; set; }
         public string UserNamn { get; set; }
         public int Saldo { get; set; }
+        public string förstaTransaktionsHistorik { get; set; }
+        public string sistaTransaktionsHistorik { get; set; }
 
         public Bankkonto(string kontoTyp, int kontonummer, string userName, int saldo)
         {
@@ -27,6 +28,7 @@ namespace InlamningBankkonto
                 return false;
             }
             Saldo += amount;
+            UppdateraTransaktionsHistoriken();
             return true;
         }
 
@@ -43,7 +45,15 @@ namespace InlamningBankkonto
                 return false;
             }
             Saldo -= amount;
+            UppdateraTransaktionsHistoriken();
             return true;
+        }
+
+        //Skapa metod som uppdaterar första och sista transaktionen och sätt in i deposit och withdraw
+        public void UppdateraTransaktionsHistoriken()
+        {
+            förstaTransaktionsHistorik ??= DateTime.Now.ToString();
+            sistaTransaktionsHistorik = DateTime.Now.ToString();
         }
     }
 }

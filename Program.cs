@@ -9,11 +9,11 @@ namespace InlamningBankkonto
         {
             User user = new User("Felicia", 1111);
 
-            bool userIsLoggedIn = false;
+            bool userHasLoggedIn = false;
 
             Console.WriteLine("Välkommen till Felicias Bank!");
 
-            while (!userIsLoggedIn)
+            while (!userHasLoggedIn)
             {
 
                 Console.WriteLine("--------------------------------");
@@ -35,12 +35,12 @@ namespace InlamningBankkonto
                     if (user.UserPinCode == userTypeInPinCode && user.UserName == userTypeInName)
                 {
                         Console.WriteLine($"Välkommen {user.UserName}! Du är inloggad");
-                        userIsLoggedIn = true;
+                        userHasLoggedIn = true;
                         
                         Transaktioner account = new Transaktioner(user);
-                        bool runing = true;
+                        bool loggedIn = true;
 
-                    while (runing)
+                    while (loggedIn)
                     {
                         Console.WriteLine("-----------------------------------------");
                         Console.WriteLine("Välj vad du vill göra");
@@ -48,7 +48,8 @@ namespace InlamningBankkonto
                         Console.WriteLine("2. Sätta in pengar");
                         Console.WriteLine("3. Ta ut pengar");
                         Console.WriteLine("4. Föra över pengar");
-                        Console.WriteLine("5. Logga ut");
+                        Console.WriteLine("5. Kolla transaktionshistorik");
+                        Console.WriteLine("6. Logga ut");
 
 
                         string userOptionChoosedWhenLoggedIn = Console.ReadLine()!;
@@ -68,9 +69,12 @@ namespace InlamningBankkonto
                                 account.TransferMoney();
                                 break;
                             case "5":
+                                account.VisaTransaktionsHistoriken();
+                                break;
+                            case "6":
                                 Console.WriteLine("Loggar ut.... Hejdå!");
-                                userIsLoggedIn = false;
-                                runing = false;
+                                userHasLoggedIn = false;
+                                loggedIn = false;
                                 break;
                         }
                     }
